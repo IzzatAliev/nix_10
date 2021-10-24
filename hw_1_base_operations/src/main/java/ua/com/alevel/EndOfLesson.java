@@ -3,8 +3,8 @@ package ua.com.alevel;
 import java.util.Scanner;
 
 public class EndOfLesson {
-    public void bell() {
 
+    public void bell() {
         int lessonTime = 45;
         int longBreak = 15;
         int shortBreak = 5;
