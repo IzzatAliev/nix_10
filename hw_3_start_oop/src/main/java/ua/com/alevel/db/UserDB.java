@@ -26,8 +26,6 @@ public class UserDB {
             users[userAmount] = user;
         }
         System.out.println("User was successfully added!");
-
-
     }
 
     public static void update(User user) {

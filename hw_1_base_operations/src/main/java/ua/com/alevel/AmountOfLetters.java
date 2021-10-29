@@ -3,8 +3,8 @@ package ua.com.alevel;
 import java.util.*;
 
 public class AmountOfLetters {
-    public void count() {
 
+    public void count() {
         System.out.print("Type in: ");
         Scanner scanner = new Scanner(System.in);
         String x = scanner.nextLine();
@@ -22,6 +22,4 @@ public class AmountOfLetters {
             System.out.println(me.getValue());
         }
     }
-
 }
-

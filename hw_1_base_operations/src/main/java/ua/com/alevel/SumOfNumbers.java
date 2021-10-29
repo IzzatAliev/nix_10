@@ -3,8 +3,8 @@ package ua.com.alevel;
 import java.util.Scanner;
 
 public class SumOfNumbers {
-    public void sumsUp() {
 
+    public void sumsUp() {
         System.out.print("Type in: ");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
@@ -18,6 +18,3 @@ public class SumOfNumbers {
         System.out.println(sum);
     }
 }
-
-
-

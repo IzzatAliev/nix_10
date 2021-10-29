@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class UserFriendlyMain {
 
     public static void main(String[] args) {
-
         String firstInput = "Choose a variety of reverse:\n";
         String welcome = """
                             (1)ReverseString;
