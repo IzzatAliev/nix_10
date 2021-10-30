@@ -8,17 +8,14 @@ import java.util.Scanner;
 public class AmountOfUniqueSymbols {
 
     public static void count() {
-
         System.out.println("Type your string: ");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         input = input.replaceAll("[^\\d.]", "");
         char[] array = input.toCharArray();
-        int i;
         int count = 0;
         Arrays.sort(array);
-
-        for (i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
             if (array[i] != array[i + 1]) {
                 ++count;
             }

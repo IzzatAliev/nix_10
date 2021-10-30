@@ -23,7 +23,6 @@ public class HorseSteps {
         int x2 = console.nextInt();
         System.out.print("Enter y: ");
         int y2 = console.nextInt();
-
         int dx = Math.abs(x1 - x2);
         int dy = Math.abs(y1 - y2);
         if (dx == 1 && dy == 2 || dx == 2 && dy == 1) {
