@@ -2,6 +2,8 @@ package ua.com.alevel.level3;
 
 import ua.com.alevel.UserInterface;
 
+import java.util.Scanner;
+
 public class GameOfLife {
 
     int width;
@@ -15,9 +17,12 @@ public class GameOfLife {
     }
 
     public static void start() {
+        int choise;
+        Scanner input = new Scanner(System.in);
         GameOfLife simulation = new GameOfLife(8, 8);
+        System.out.println("Type a number from 0 to 7");
 
-        simulation.setAlive(1, 1);
+        simulation.setAlive(choise = input.nextInt(), 1);
         simulation.setAlive(1, 6);
         simulation.setAlive(2, 3);
         simulation.setAlive(2, 4);
