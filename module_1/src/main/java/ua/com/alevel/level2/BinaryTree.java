@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 
 public class BinaryTree {
+
     Node root;
 
     public static void createBinaryTree() {
