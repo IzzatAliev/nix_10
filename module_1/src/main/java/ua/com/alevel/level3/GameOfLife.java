@@ -17,12 +17,11 @@ public class GameOfLife {
     }
 
     public static void start() {
-        int choise;
         Scanner input = new Scanner(System.in);
         GameOfLife simulation = new GameOfLife(8, 8);
         System.out.println("Type a number from 0 to 7");
 
-        simulation.setAlive(choise = input.nextInt(), 1);
+        simulation.setAlive(input.nextInt(), 1);
         simulation.setAlive(1, 6);
         simulation.setAlive(2, 3);
         simulation.setAlive(2, 4);
@@ -40,9 +39,7 @@ public class GameOfLife {
         simulation.setAlive(6, 6);
 
         for (int i = 0; i < 100; i++) {
-
             simulation.printBoard();
-
             simulation.step();
         }
         UserInterface.SelectThirdLevel();
@@ -67,10 +64,6 @@ public class GameOfLife {
 
     public void setAlive(int x, int y) {
         this.board[x][y] = 1;
-    }
-
-    public void setDead(int x, int y) {
-        this.board[x][y] = 0;
     }
 
     public int countAliveNeighbours(int x, int y) {

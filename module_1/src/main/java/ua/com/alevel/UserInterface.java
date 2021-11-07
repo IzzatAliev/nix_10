@@ -26,11 +26,8 @@ public class UserInterface {
         while ((level = input.nextLine()) != null) {
             switch (level) {
                 case "1" -> UserInterface.SelectFirstLevel();
-
                 case "2" -> UserInterface.SelectSecondLevel();
-
                 case "3" -> UserInterface.SelectThirdLevel();
-
                 case "0" -> System.exit(0);
             }
         }
@@ -48,11 +45,8 @@ public class UserInterface {
         while ((task = input.nextLine()) != null) {
             switch (task) {
                 case "1" -> AmountOfUniqueSymbols.count();
-
                 case "2" -> HorseSteps.reply();
-
                 case "3" -> SquareOfTriangle.getSquare();
-
                 case "0" -> UserInterface.SelectLevel();
             }
         }
@@ -69,9 +63,7 @@ public class UserInterface {
         while ((task = input.nextLine()) != null) {
             switch (task) {
                 case "1" -> Brackets.caller();
-
                 case "2" -> BinaryTree.createBinaryTree();
-
                 case "0" -> UserInterface.SelectLevel();
             }
         }
@@ -87,7 +79,6 @@ public class UserInterface {
         while ((task = input.nextLine()) != null) {
             switch (task) {
                 case "1" -> GameOfLife.start();
-
                 case "0" -> UserInterface.SelectLevel();
             }
         }
