@@ -1,1 +1,0 @@
-call java -jar .\target\main.jar
