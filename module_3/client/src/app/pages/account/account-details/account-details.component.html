@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-2 mt-2">
+      <div class="card-header">
+        Account
+      </div>
+      <div class="card-body">
+        <div class="row mt-2">
+          <div class="col-6">
+            id
+          </div>
+          <div class="col-6">
+            {{ account?.id }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            Email
+          </div>
+          <div class="col-6">
+            {{ account?.name }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            FirstName
+          </div>
+          <div class="col-6">
+            {{ account?.balance }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            created
+          </div>
+          <div class="col-6">
+            {{ account?.created | date: dateFormat }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            updated
+          </div>
+          <div class="col-6">
+            {{ account?.updated | date: dateFormat }}
+          </div>
+        </div>
+        <!--        <div class="row mt-2">-->
+        <!--          <div class="col-6">-->
+        <!--            show all accounts-->
+        <!--          </div>-->
+        <!--          <div class="col-6">-->
+        <!--            <button type="button" class="btn btn-primary btn-sm" (click)="showAllEmployees()"><i class="fa fa-address-book-o" aria-hidden="true"></i></button>-->
+        <!--          </div>-->
+        <!--        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

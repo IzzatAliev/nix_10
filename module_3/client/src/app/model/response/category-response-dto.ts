@@ -1,0 +1,7 @@
+import {ResponseDto} from "./response-dto";
+
+export interface CategoryResponseDto extends ResponseDto {
+
+  name: string;
+  income: boolean;
+}

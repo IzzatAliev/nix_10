@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-2 mt-2">
+      <div class="card-header">
+        Accounts by user {{ user?.firstName }}
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>name</th>
+            <th>balance</th>
+            <th>user</th>
+            <th>details</th>
+            <th>delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let account of accounts">
+            <td>{{ account.name }}</td>
+            <td>{{ account.balance }}</td>
+            <td>{{ account.user }}</td>
+            <td><button type="button" class="btn btn-primary" (click)="loadById(account.id)">details</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteById(account.id)">delete</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

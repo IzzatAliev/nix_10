@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -10,25 +9,15 @@
         <version>2.6.1</version>
         <relativePath/>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ua.com.alevel</groupId>
-    <artifactId>nix_10</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <groupId>ua.com.alevel</groupId>
+    <artifactId>hw_8_web_jdbc</artifactId>
 
     <modules>
-        <module>hw_1_base_operations</module>
-        <module>reversestring</module>
-        <module>hw_2_strings</module>
-        <module>hw_3_start_oop</module>
-        <module>module_1</module>
-        <module>hw_4_logs_and_test</module>
-        <module>generic_set</module>
-        <module>hw_5_collection</module>
-        <module>hw_6_exception</module>
-        <module>hw_7_ionio</module>
-        <module>module_2</module>
-        <module>module_3</module>
-        <module>hw_8_web_jdbc</module>
+        <module>jdbc_server</module>
+        <module>jdbc-client</module>
     </modules>
     <packaging>pom</packaging>
 
