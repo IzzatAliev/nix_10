@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cd ./jdbc-client
+cd ../jdbc-client
 npm install
 ng serve
