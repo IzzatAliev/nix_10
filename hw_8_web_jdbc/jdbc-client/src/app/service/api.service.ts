@@ -1,18 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {map, Observable} from "rxjs";
-import {PageAndSizeData} from "../model/request/page-and-size-data";
+import {catchError, map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
-
-  // page!: PageAndSizeData;
-  // size!: PageAndSizeData;
-  // sort!: SortData;
-  // order!: SortData;
-  sorting: PageAndSizeData | undefined;
 
   constructor(private _http: HttpClient) { }
 
@@ -61,7 +54,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
     options.params = params;
     return this._http.get(apiUrl, options).pipe(
       map((res: any) => {
-        return res.data
+        return res.items
       })
     );
   }

@@ -6,7 +6,7 @@ import { CourseNewComponent } from './course-new/course-new.component';
 import { CourseItemsComponent } from './course-items/course-items.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import {ReactiveFormsModule} from "@angular/forms";
-
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import {ReactiveFormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     CourseRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ]
 })
 export class CourseModule { }

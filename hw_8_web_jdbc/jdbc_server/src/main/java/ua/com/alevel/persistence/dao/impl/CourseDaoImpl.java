@@ -74,20 +74,6 @@ public class CourseDaoImpl implements CourseDao {
         return null;
     }
 
-
-//    public DataTableResponse<Course> findAll(DataTableRequest request) {
-//        List<Course> courses = new ArrayList<>();
-//        try(ResultSet resultSet = jpaConfig.getStatement().executeQuery(FIND_ALL_COURSES_QUERY)) {
-//            while (resultSet.next()) {
-//                courses.add(initCourseByResultSet(resultSet));
-//            }
-//        } catch (SQLException e) {
-//            System.out.println("problem: = " + e.getMessage());
-//        }
-//        DataTableResponse<Course> dataTableResponse = new DataTableResponse<>();
-//        dataTableResponse.setItems(courses);
-//        return dataTableResponse;
-//    }
     @Override
     public DataTableResponse<Course> findAll(DataTableRequest request) {
         List<Course> courses = new ArrayList<>();
@@ -121,6 +107,13 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public long count() {
+        try (ResultSet resultSet = jpaConfig.getStatement().executeQuery("select count(*) as count from courses")) {
+            while (resultSet.next()) {
+                return resultSet.getLong("count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return 0;
     }
 

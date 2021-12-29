@@ -5,7 +5,6 @@ import ua.com.alevel.config.jpa.JpaConfig;
 import ua.com.alevel.persistence.dao.StudentDao;
 import ua.com.alevel.persistence.datatable.DataTableRequest;
 import ua.com.alevel.persistence.datatable.DataTableResponse;
-import ua.com.alevel.persistence.entity.Course;
 import ua.com.alevel.persistence.entity.Student;
 
 import java.sql.PreparedStatement;

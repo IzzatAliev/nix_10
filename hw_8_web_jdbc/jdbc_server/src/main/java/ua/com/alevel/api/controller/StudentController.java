@@ -55,12 +55,4 @@ public class StudentController {
         }
         return ResponseEntity.ok(studentFacade.findAll(webRequest));
     }
-
-//    @GetMapping
-//    public ResponseEntity<PageData<StudentResponseDto>> findAll(@RequestParam(required = false) Long courseId, WebRequest webRequest) {
-//        if (courseId != null){
-//            ResponseEntity.ok(courseFacade.findById(courseId));//TODO later
-//        }
-//        return ResponseEntity.ok(studentFacade.findAll(webRequest));
-//    }
 }

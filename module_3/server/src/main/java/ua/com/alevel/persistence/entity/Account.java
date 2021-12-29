@@ -1,9 +1,6 @@
 package ua.com.alevel.persistence.entity;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -11,10 +8,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 @Table(name = "accounts")
 public class Account extends BaseEntity {
 

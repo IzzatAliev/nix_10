@@ -1,6 +1,6 @@
 package ua.com.alevel.persistence.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,10 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 @Table(name = "categories")
 public class Category extends BaseEntity {
 

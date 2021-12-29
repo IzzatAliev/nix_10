@@ -1,6 +1,6 @@
 package ua.com.alevel.persistence.entity;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,10 +9,10 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Data
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 @Table(name = "transactions")
 public class Transaction extends BaseEntity {
 
@@ -26,7 +26,6 @@ public class Transaction extends BaseEntity {
 
     @Column(nullable = false)
     private BigDecimal amount;
-
 
     public Transaction() {
         super();
