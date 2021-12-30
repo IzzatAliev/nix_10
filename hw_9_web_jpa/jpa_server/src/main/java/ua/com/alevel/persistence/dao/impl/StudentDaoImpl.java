@@ -6,6 +6,7 @@ import ua.com.alevel.persistence.dao.BaseDao;
 import ua.com.alevel.persistence.dao.StudentDao;
 import ua.com.alevel.persistence.datatable.DataTableRequest;
 import ua.com.alevel.persistence.datatable.DataTableResponse;
+import ua.com.alevel.persistence.entity.Course;
 import ua.com.alevel.persistence.entity.Student;
 
 import javax.persistence.EntityManager;
@@ -14,8 +15,10 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -86,7 +89,12 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Map<Long, String> findByCourseId(Long courseId) {
-        return null;
+        Map<Long, String> map = new HashMap<>();
+        Set<Course> courses = findById(courseId).getCourses();
+        for (Course course : courses) {
+            map.put(course.getId(), course.getCourseName());
+        }
+        return map;
     }
 
     @Override

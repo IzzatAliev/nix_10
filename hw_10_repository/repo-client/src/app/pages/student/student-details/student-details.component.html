@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-2 mt-2">
+      <div class="card-header">
+        Student details
+      </div>
+      <div class="card-body">
+        <div class="row mt-2">
+          <div class="col-6">
+            id
+          </div>
+          <div class="col-6">
+            {{ student?.id }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            First name
+          </div>
+          <div class="col-6">
+            {{ student?.firstName }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            LastName
+          </div>
+          <div class="col-6">
+            {{ student?.lastName }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            Age
+          </div>
+          <div class="col-6">
+            {{ student?.age }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            created
+          </div>
+          <div class="col-6">
+            {{ student?.created | date: dateFormat }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            updated
+          </div>
+          <div class="col-6">
+            {{ student?.updated | date: dateFormat }}
+          </div>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn btn-dark btn-sm" (click)="goBack()">back<i class="fa fa-hand-o-left" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

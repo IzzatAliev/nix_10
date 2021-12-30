@@ -3,9 +3,11 @@ package ua.com.alevel.persistence.dao.impl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.com.alevel.persistence.dao.CourseDao;
+import ua.com.alevel.persistence.dao.StudentDao;
 import ua.com.alevel.persistence.datatable.DataTableRequest;
 import ua.com.alevel.persistence.datatable.DataTableResponse;
 import ua.com.alevel.persistence.entity.Course;
+import ua.com.alevel.persistence.entity.Student;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -24,6 +26,12 @@ public class CourseDaoImpl implements CourseDao {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    private final StudentDao studentDao;
+
+    public CourseDaoImpl(StudentDao studentDao) {
+        this.studentDao = studentDao;
+    }
 
     @Override
     public void create(Course course) {
@@ -87,13 +95,12 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public Map<Long, String> findByStudentId(Long studentId) {
-//        Map<Long, String> map = new HashMap<>();
-//        Set<Course> courses = findById(studentId).getCourses();
-//        for (Course course : courses) {
-//            map.put(course.getId(), course.getName());
-//        }
-//        return map;
-        return null;
+        Map<Long, String> map = new HashMap<>();
+        Set<Student> students = findById(studentId).getStudents();
+        for (Student student : students) {
+            map.put(student.getId(), student.getFirstName());
+        }
+        return map;
     }
 
     @Override
