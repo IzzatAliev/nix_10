@@ -5,6 +5,7 @@ import {ApiService} from "./api.service";
 import {CategoryRequestDto} from "../model/request/category-request-dto";
 import {CategoryResponseDto} from "../model/response/category-response-dto";
 import {Observable} from "rxjs";
+import {HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,11 @@ export class CategoryApiService {
 
   loadAll(): Observable<CategoryResponseDto[]> {
     return this._apiService.loadAll(this._apiUrl);
+  }
+
+  loadAllByAccountId(accountId: string): Observable<CategoryResponseDto[]> {
+    let httpParams = new HttpParams();
+    httpParams = httpParams.append('accountId', accountId);
+    return this._apiService.loadAllByParams(this._apiUrl, httpParams);
   }
 }

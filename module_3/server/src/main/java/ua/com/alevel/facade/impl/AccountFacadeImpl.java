@@ -5,6 +5,7 @@ import ua.com.alevel.api.dto.request.AccountRequestDto;
 import ua.com.alevel.api.dto.response.AccountResponseDto;
 import ua.com.alevel.facade.AccountFacade;
 import ua.com.alevel.persistence.entity.Account;
+import ua.com.alevel.persistence.entity.User;
 import ua.com.alevel.service.AccountService;
 import ua.com.alevel.service.UserService;
 
@@ -15,9 +16,11 @@ import java.util.stream.Collectors;
 public class AccountFacadeImpl implements AccountFacade {
 
     private final AccountService accountService;
+    private final UserService userService;
 
-    public AccountFacadeImpl(AccountService accountService) {
+    public AccountFacadeImpl(AccountService accountService, UserService userService) {
         this.accountService = accountService;
+        this.userService = userService;
     }
 
     @Override
@@ -25,6 +28,8 @@ public class AccountFacadeImpl implements AccountFacade {
         Account account = new Account();
         account.setName(request.getName());
         account.setBalance(request.getBalance());
+        User user = userService.findById(request.getUserId());
+        account.setUsers(user);
         accountService.create(account);
     }
 
@@ -55,7 +60,7 @@ public class AccountFacadeImpl implements AccountFacade {
 
     @Override
     public List<AccountResponseDto> findAllByUserId(Long userId) {
-        return accountService.findAllByUserId(userId)
+        return accountService.findAllByUserId(userService.findById(userId))
                 .stream().map(AccountResponseDto::new).collect(Collectors.toList());
     }
 }

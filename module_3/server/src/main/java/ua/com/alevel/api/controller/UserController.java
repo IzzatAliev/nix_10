@@ -3,6 +3,7 @@ package ua.com.alevel.api.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ua.com.alevel.api.dto.DataContainer;
 import ua.com.alevel.api.dto.request.UserRequestDto;
 import ua.com.alevel.api.dto.response.UserResponseDto;
 import ua.com.alevel.facade.UserFacade;
@@ -20,21 +21,21 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<Boolean> create(@RequestBody UserRequestDto dto) {
+    public ResponseEntity<DataContainer<Boolean>> create(@RequestBody UserRequestDto dto) {
         userFacade.create(dto);
-        return ResponseEntity.status(HttpStatus.CREATED).body(true);
+        return ResponseEntity.status(HttpStatus.CREATED).body(new DataContainer<>(true));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Boolean> update(@RequestBody UserRequestDto dto, @PathVariable Long id) {
+    public ResponseEntity<DataContainer<Boolean>> update(@RequestBody UserRequestDto dto, @PathVariable Long id) {
         userFacade.update(dto, id);
-        return ResponseEntity.ok(true);
+        return ResponseEntity.ok(new DataContainer<>(true));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
+    public ResponseEntity<DataContainer<Boolean>> delete(@PathVariable Long id) {
         userFacade.delete(id);
-        return ResponseEntity.ok(true);
+        return ResponseEntity.ok(new DataContainer<>(true));
     }
 
     @GetMapping("/{id}")

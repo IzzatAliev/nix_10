@@ -45,7 +45,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
   loadAll(apiUrl: string): Observable<RESPONSE_DTO[]> {
     return this._http.get(apiUrl, this._getOptions()).pipe(
       map((res: any) => {
-        return res.data
+        return res.items
       })
     );
   }
@@ -55,7 +55,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
     options.params = params;
     return this._http.get(apiUrl, options).pipe(
       map((res: any) => {
-        return res.data
+        return res.items
       })
     );
   }

@@ -1,1 +1,31 @@
-<p>transaction-items works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-2 mt-2">
+      <div class="card-header">
+        Transactions by Category {{ category?.name }}
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>account</th>
+            <th>category</th>
+            <th>amount</th>
+            <th>details</th>
+            <th>delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let transaction of transactions">
+            <td>{{ transaction.account }}</td>
+            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td><button type="button" class="btn btn-primary" (click)="loadById(transaction.id)">details</button></td>
+            <td><button type="button" class="btn btn-danger" (click)="deleteById(transaction.id)">delete</button></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

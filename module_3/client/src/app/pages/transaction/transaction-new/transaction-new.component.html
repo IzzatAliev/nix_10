@@ -1,1 +1,18 @@
-<p>transaction-new works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-2 mt-2">
+      <div class="card-header">
+        New Transaction
+      </div>
+      <div class="card-body">
+        <form [formGroup]="transactionForm" (ngSubmit)="create()">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" aria-describedby="amount" formControlName="amount">
+          </div>
+          <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

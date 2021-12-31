@@ -1,1 +1,67 @@
-<p>transaction-details works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-2 mt-2">
+      <div class="card-header">
+        Transaction
+      </div>
+      <div class="card-body">
+        <div class="row mt-2">
+          <div class="col-6">
+            id
+          </div>
+          <div class="col-6">
+            {{ transaction?.id }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            account
+          </div>
+          <div class="col-6">
+            {{ transaction?.account }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            category
+          </div>
+          <div class="col-6">
+            {{ transaction?.category }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            amount
+          </div>
+          <div class="col-6">
+            {{ transaction?.amount }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            created
+          </div>
+          <div class="col-6">
+            {{ transaction?.created | date: dateFormat }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
+            updated
+          </div>
+          <div class="col-6">
+            {{ transaction?.updated | date: dateFormat }}
+          </div>
+        </div>
+        <!--        <div class="row mt-2">-->
+        <!--          <div class="col-6">-->
+        <!--            show all transactions-->
+        <!--          </div>-->
+        <!--          <div class="col-6">-->
+        <!--            <button type="button" class="btn btn-primary btn-sm" (click)="showAllEmployees()"><i class="fa fa-address-book-o" aria-hidden="true"></i></button>-->
+        <!--          </div>-->
+        <!--        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

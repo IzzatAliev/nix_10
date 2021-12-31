@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.com.alevel.persistence.dao.AccountDao;
 import ua.com.alevel.persistence.entity.Account;
+import ua.com.alevel.persistence.entity.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -60,8 +61,8 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public List<Account> findAllByUserId(Long userId) {
-        return entityManager.createQuery("select * from accounts where user_id = " + userId).getResultList();
+    public List<Account> findAllByUserId(User user) {
+        return entityManager.createQuery("select * from accounts where user = " + user).getResultList();
 
     }
 }
