@@ -3,7 +3,6 @@ package ua.com.alevel.persistence.dao.impl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.com.alevel.persistence.dao.UserDao;
-import ua.com.alevel.persistence.entity.Account;
 import ua.com.alevel.persistence.entity.User;
 
 import javax.persistence.EntityManager;
@@ -16,7 +15,7 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     public UserDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;

@@ -16,7 +16,7 @@ import java.util.List;
 public class AccountDaoImpl implements AccountDao {
 
     @PersistenceContext
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     public AccountDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -24,7 +24,7 @@ public class AccountDaoImpl implements AccountDao {
 
     @Override
     public void create(Account account) {
-        entityManager.persist(account);
+        entityManager.merge(account);
     }
 
     @Override

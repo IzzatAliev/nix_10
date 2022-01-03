@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryDaoImpl implements CategoryDao {
 
     @PersistenceContext
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     public CategoryDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;

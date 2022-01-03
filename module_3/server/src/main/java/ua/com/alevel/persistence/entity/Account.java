@@ -18,7 +18,7 @@ public class Account extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", nullable = false)
     private User users;
 
@@ -26,6 +26,7 @@ public class Account extends BaseEntity {
     private BigDecimal balance;
 
     @OneToMany(mappedBy="accounts", fetch= FetchType.LAZY)
+    @ToString.Exclude
     private Set<Transaction> transactions;
 
     public Account() {

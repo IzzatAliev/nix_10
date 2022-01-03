@@ -23,6 +23,7 @@ public class CategoryFacadeImpl implements CategoryFacade {
     public void create(CategoryRequestDto request) {
         Category category = new Category();
         category.setName(request.getName());
+        category.setPrice(request.getPrice());
         category.setIncome(request.isIncome());
         categoryService.create(category);
     }
@@ -31,6 +32,7 @@ public class CategoryFacadeImpl implements CategoryFacade {
     public void update(CategoryRequestDto request, Long id) {
         Category category = new Category();
         category.setName(request.getName());
+        category.setPrice(request.getPrice());
         category.setIncome(request.isIncome());
         categoryService.update(category);
     }

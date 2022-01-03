@@ -10,6 +10,6 @@ import java.math.BigDecimal;
 public class AccountRequestDto extends RequestDto {
 
     private String name;
-    private Long userId;
+    private long userId;
     private BigDecimal balance;
 }

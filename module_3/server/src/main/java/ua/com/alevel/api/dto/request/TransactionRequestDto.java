@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Setter
 public class TransactionRequestDto extends RequestDto {
 
-    private Account accountId;
-    private Category categoryId;
+    private long accountId;
+    private long categoryId;
     private BigDecimal amount;
 }

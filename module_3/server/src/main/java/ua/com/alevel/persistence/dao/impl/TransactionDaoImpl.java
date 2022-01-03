@@ -16,7 +16,7 @@ import java.util.List;
 public class TransactionDaoImpl implements TransactionDao {
 
     @PersistenceContext
-    private final EntityManager entityManager;
+    private EntityManager entityManager;
 
     public TransactionDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
@@ -24,7 +24,7 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public void create(Transaction transaction) {
-        entityManager.persist(transaction);
+        entityManager.merge(transaction);
     }
 
     @Override

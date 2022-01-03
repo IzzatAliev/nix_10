@@ -28,8 +28,7 @@ public class AccountFacadeImpl implements AccountFacade {
         Account account = new Account();
         account.setName(request.getName());
         account.setBalance(request.getBalance());
-        User user = userService.findById(request.getUserId());
-        account.setUsers(user);
+        account.setUsers(userService.findById(request.getUserId()));
         accountService.create(account);
     }
 

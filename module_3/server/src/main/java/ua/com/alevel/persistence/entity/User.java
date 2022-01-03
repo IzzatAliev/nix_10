@@ -24,6 +24,7 @@ public class User extends BaseEntity {
     private String lastName;
 
     @OneToMany(mappedBy="users", fetch= FetchType.LAZY)
+    @ToString.Exclude
     private Set<Account> accounts;
 
     public User() {

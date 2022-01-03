@@ -5,6 +5,8 @@ import ua.com.alevel.api.dto.request.TransactionRequestDto;
 import ua.com.alevel.api.dto.response.TransactionResponseDto;
 import ua.com.alevel.facade.TransactionFacade;
 import ua.com.alevel.persistence.entity.Transaction;
+import ua.com.alevel.service.AccountService;
+import ua.com.alevel.service.CategoryService;
 import ua.com.alevel.service.TransactionService;
 
 import java.util.List;
@@ -14,16 +16,20 @@ import java.util.stream.Collectors;
 public class TransactionFacadeImpl implements TransactionFacade {
 
     private final TransactionService transactionService;
+    private final CategoryService categoryService;
+    private final AccountService accountService;
 
-    public TransactionFacadeImpl(TransactionService transactionService) {
+    public TransactionFacadeImpl(TransactionService transactionService, CategoryService categoryService, AccountService accountService) {
         this.transactionService = transactionService;
+        this.categoryService = categoryService;
+        this.accountService = accountService;
     }
 
     @Override
     public void create(TransactionRequestDto request) {
         Transaction transaction = new Transaction();
-        transaction.setAccounts(request.getAccountId());
-        transaction.setCategories(request.getCategoryId());
+        transaction.setAccounts(accountService.findById(request.getAccountId()));
+        transaction.setCategories(categoryService.findById(request.getCategoryId()));
         transaction.setAmount(request.getAmount());
         transactionService.create(transaction);
     }
@@ -31,8 +37,8 @@ public class TransactionFacadeImpl implements TransactionFacade {
     @Override
     public void update(TransactionRequestDto request, Long id) {
         Transaction transaction = new Transaction();
-        transaction.setAccounts(request.getAccountId());
-        transaction.setCategories(request.getCategoryId());
+        transaction.setAccounts(accountService.findById(request.getAccountId()));
+        transaction.setCategories(categoryService.findById(request.getCategoryId()));
         transaction.setAmount(request.getAmount());
         transactionService.update(transaction);
     }
