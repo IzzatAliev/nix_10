@@ -2,6 +2,6 @@ export interface CategoryRequestDto {
 
   name: string;
   price: number;
-  // accountId: number;
+  accountId: number;
   income: boolean;
 }
