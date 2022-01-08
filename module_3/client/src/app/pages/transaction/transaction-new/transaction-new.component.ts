@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {TransactionRequestDto} from "../../../model/request/transaction-request-dto";
+import {Amount, TransactionRequestDto} from "../../../model/request/transaction-request-dto";
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TransactionApiService} from "../../../service/transaction-api.service";
+import {CategoryResponseDto} from "../../../model/response/category-response-dto";
+import {CategoryName} from "../../../model/request/category-request-dto";
 
 @Component({
   selector: 'app-transaction-new',
@@ -11,12 +13,16 @@ import {TransactionApiService} from "../../../service/transaction-api.service";
 })
 export class TransactionNewComponent implements OnInit {
 
-  private _categoryId: number | undefined;
+  category: CategoryResponseDto[] | undefined;
+  private _accountId: number | undefined;
+  categoryName = CategoryName;
+  amount = Amount;
 
   transaction: TransactionRequestDto | undefined;
 
   transactionForm = new FormGroup({
-    amount: new FormControl("")
+    amount: new FormControl(""),
+    categoryName: new FormControl("")
   })
 
   constructor(
@@ -25,15 +31,17 @@ export class TransactionNewComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit(): void {
+    const accountId: string | null = this._route.snapshot.queryParamMap.get('accountId');
+    this._accountId = Number(accountId);
   }
 
   create(): void {
     let transaction = this.transactionForm.value as TransactionRequestDto;
-    if (this._categoryId != null) {
-      transaction.categoryId = this._categoryId;
+    if (this._accountId != null) {
+      transaction.accountId = this._accountId;
     }
     this._transactionApiService.create(transaction).subscribe(() => {
-      this._router.navigateByUrl('categories/' + this._categoryId);
+      this._router.navigateByUrl('accounts/' + this._accountId);
     });
   }
 

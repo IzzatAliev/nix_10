@@ -21,7 +21,7 @@ public class Transaction extends BaseEntity {
     private Account accounts;
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_name", nullable = false)
     private Category categories;
 
     @Column(nullable = false)

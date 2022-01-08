@@ -31,6 +31,14 @@
         </div>
         <div class="row mt-2">
           <div class="col-6">
+            User
+          </div>
+          <div class="col-6">
+            {{ account?.user!.firstName + ' ' + account?.user!.lastName }}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-6">
             created
           </div>
           <div class="col-6">
@@ -45,14 +53,9 @@
             {{ account?.updated | date: dateFormat }}
           </div>
         </div>
-        <!--        <div class="row mt-2">-->
-        <!--          <div class="col-6">-->
-        <!--            show all accounts-->
-        <!--          </div>-->
-        <!--          <div class="col-6">-->
-        <!--            <button type="button" class="btn btn-primary btn-sm" (click)="showAllEmployees()"><i class="fa fa-address-book-o" aria-hidden="true"></i></button>-->
-        <!--          </div>-->
-        <!--        </div>-->
+        <div class="col-6">
+          <button type="button" class="btn btn-primary btn-sm" (click)="makeTransaction()">make transaction</button>
+        </div>
       </div>
     </div>
   </div>

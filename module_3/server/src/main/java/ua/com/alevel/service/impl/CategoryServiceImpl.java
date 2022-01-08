@@ -61,6 +61,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     @Transactional(readOnly = true)
+    public Category findByName(String name) {
+        LOGGER_INFO.info("find category by name: " + name);
+        return categoryDao.findByName(name);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<Category> findAll() {
         LOGGER_INFO.info("find all categories");
         return categoryDao.findAll();

@@ -61,8 +61,8 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     @Override
-    public List<Account> findAllByUserId(User user) {
-        return entityManager.createQuery("select * from accounts where user = " + user).getResultList();
-
+    public List<Account> findAllByUser(User user) {
+        return entityManager.createQuery("select a from Account a where a.users = :user", Account.class)
+                .setParameter("user", user).getResultList();
     }
 }

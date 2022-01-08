@@ -59,7 +59,7 @@ public class AccountFacadeImpl implements AccountFacade {
 
     @Override
     public List<AccountResponseDto> findAllByUserId(Long userId) {
-        return accountService.findAllByUserId(userService.findById(userId))
+        return accountService.findAllByUser(userService.findById(userId))
                 .stream().map(AccountResponseDto::new).collect(Collectors.toList());
     }
 }

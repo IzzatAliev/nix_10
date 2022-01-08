@@ -27,6 +27,10 @@ export class AccountDetailsComponent implements OnInit {
     });
   }
 
+  makeTransaction() {
+    this._router.navigateByUrl('transactions/new?accountId=' + this.account?.id);
+  }
+
   // onClick() {
   //   this.location.back();
   // }

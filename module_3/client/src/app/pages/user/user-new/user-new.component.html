@@ -5,7 +5,7 @@
         New user
       </div>
       <div class="card-body">
-        <form [formGroup]="userForm" (ngSubmit)="create()">
+        <form [formGroup]="userForm" (ngSubmit)="create()" novalidate>
           <div class="form-group">
             <label for="firstName">First name</label>
             <input type="text" class="form-control" id="firstName" aria-describedby="firstName" formControlName="firstName">

@@ -60,11 +60,13 @@ public class TransactionDaoImpl implements TransactionDao {
 
     @Override
     public List<Transaction> findAllByAccountId(Long accountId) {
-        return entityManager.createQuery("select * from transactions where account_id = " + accountId).getResultList();
+        return entityManager.createQuery("select t from Transaction as t where t.accounts = :accountId", Transaction.class)
+                .setParameter("accountId", accountId).getResultList();
     }
 
     @Override
     public List<Transaction> findAllByCategoryId(Long categoryId) {
-        return entityManager.createQuery("select * from transactions where category_id = " + categoryId).getResultList();
+        return entityManager.createQuery("select t from Transaction as t where t.categories = :categoryId", Transaction.class)
+                .setParameter("categoryId", categoryId).getResultList();
     }
 }

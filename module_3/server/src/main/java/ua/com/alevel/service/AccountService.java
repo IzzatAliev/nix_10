@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface AccountService extends BaseService<Account> {
 
-    List<Account> findAllByUserId(User user);
+    List<Account> findAllByUser(User user);
 }

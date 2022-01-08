@@ -20,7 +20,6 @@ public class TransactionServiceImpl implements TransactionService {
     private static final Logger LOGGER_ERROR = LoggerFactory.getLogger("error");
 
     private final TransactionDao transactionDao;
-
     public TransactionServiceImpl(TransactionDao transactionDao) {
         this.transactionDao = transactionDao;
     }
@@ -28,6 +27,10 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public void create(Transaction transaction) {
+//        Transaction tran = new Transaction();
+//        tran.setAccounts(transaction.getAccounts());
+//        tran.setCategories(transaction.getCategories());
+//        tran.setAmount(transaction.getAmount());
         LOGGER_INFO.info("create the new transaction: " + transaction.getAccounts() + " " + transaction.getCategories() + " " + transaction.getAmount());
         transactionDao.create(transaction);
     }

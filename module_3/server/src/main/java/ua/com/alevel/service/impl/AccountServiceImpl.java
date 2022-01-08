@@ -69,8 +69,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Account> findAllByUserId(User user) {
+    public List<Account> findAllByUser(User user) {
         LOGGER_INFO.info("find All Accounts by User: " + user);
-        return accountDao.findAllByUserId(user);
+        return accountDao.findAllByUser(user);
     }
 }

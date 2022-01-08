@@ -55,6 +55,12 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
+    public Category findByName(String name) {
+        return (Category) entityManager.createQuery("select c from Category as c where c.name = :name")
+                .setParameter("name", name).getSingleResult();
+    }
+
+    @Override
     public List<Category> findAll() {
         return entityManager.createQuery("select c from Category c", Category.class).getResultList();
     }

@@ -18,7 +18,7 @@ import java.util.Set;
 @Table(name = "categories")
 public class Category extends BaseEntity {
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
@@ -28,6 +28,7 @@ public class Category extends BaseEntity {
     private boolean income;
 
     @OneToMany(mappedBy="categories", fetch= FetchType.LAZY)
+    @ToString.Exclude
     private Set<Transaction> transactions;
 
     public Category() {

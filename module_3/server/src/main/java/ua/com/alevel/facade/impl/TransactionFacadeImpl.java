@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import ua.com.alevel.api.dto.request.TransactionRequestDto;
 import ua.com.alevel.api.dto.response.TransactionResponseDto;
 import ua.com.alevel.facade.TransactionFacade;
+import ua.com.alevel.persistence.entity.Account;
 import ua.com.alevel.persistence.entity.Transaction;
 import ua.com.alevel.service.AccountService;
 import ua.com.alevel.service.CategoryService;
@@ -29,8 +30,14 @@ public class TransactionFacadeImpl implements TransactionFacade {
     public void create(TransactionRequestDto request) {
         Transaction transaction = new Transaction();
         transaction.setAccounts(accountService.findById(request.getAccountId()));
-        transaction.setCategories(categoryService.findById(request.getCategoryId()));
-        transaction.setAmount(request.getAmount());
+        transaction.setCategories(categoryService.findByName(request.getCategoryName()));
+        transaction.setAmount(request.getAmount()
+                        .add(categoryService
+                                .findByName(request.getCategoryName())
+                                .getPrice()));
+//        new AccountResponseDto().setBalance(accountService.findById(request.getAccountId())
+//                .getBalance()
+//                .subtract(transaction.getAmount()));
         transactionService.create(transaction);
     }
 
@@ -38,7 +45,7 @@ public class TransactionFacadeImpl implements TransactionFacade {
     public void update(TransactionRequestDto request, Long id) {
         Transaction transaction = new Transaction();
         transaction.setAccounts(accountService.findById(request.getAccountId()));
-        transaction.setCategories(categoryService.findById(request.getCategoryId()));
+        transaction.setCategories(categoryService.findByName(request.getCategoryName()));
         transaction.setAmount(request.getAmount());
         transactionService.update(transaction);
     }

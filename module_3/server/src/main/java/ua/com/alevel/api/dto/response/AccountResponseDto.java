@@ -16,9 +16,15 @@ public class AccountResponseDto extends ResponseDto {
 
     private String name;
     private BigDecimal balance;
-    private User user;
+    private UserResponseDto user;
 
-    public AccountResponseDto(Account account){
+    public AccountResponseDto(Account account) {
         BeanUtils.copyProperties(account, this);
+        setId(account.getId());
+        setCreated(account.getCreated());
+        setUpdated(account.getUpdated());
+        setName(account.getName());
+        setBalance(account.getBalance());
+        setUser(new UserResponseDto(account.getUsers()));
     }
 }

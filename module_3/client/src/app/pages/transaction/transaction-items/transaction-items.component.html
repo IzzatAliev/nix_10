@@ -11,17 +11,19 @@
             <th>account</th>
             <th>category</th>
             <th>amount</th>
+            <th>date</th>
             <th>details</th>
-            <th>delete</th>
+<!--            <th>delete</th>-->
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let transaction of transactions">
-            <td>{{ transaction.account }}</td>
-            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.account.name }}</td>
+            <td>{{ transaction.category.name }}</td>
             <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.created | date:'medium' }}</td>
             <td><button type="button" class="btn btn-primary" (click)="loadById(transaction.id)">details</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deleteById(transaction.id)">delete</button></td>
+<!--            <td><button type="button" class="btn btn-danger" (click)="deleteById(transaction.id)">delete</button></td>-->
           </tr>
           </tbody>
         </table>

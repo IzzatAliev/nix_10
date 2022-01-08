@@ -5,10 +5,18 @@
         New Transaction
       </div>
       <div class="card-body">
-        <form [formGroup]="transactionForm" (ngSubmit)="create()">
+        <form [formGroup]="transactionForm" (ngSubmit)="create()" novalidate>
           <div class="form-group">
             <label for="amount">Amount</label>
-            <input type="text" class="form-control" id="amount" aria-describedby="amount" formControlName="amount">
+            <select id="amount" class="form-select" formControlName="amount">
+              <option *ngFor="let amnt of amount | keyvalue" [ngValue]="amnt.key">{{ amnt.value }}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="categoryName">Category name</label>
+            <select id="categoryName" class="form-select" formControlName="categoryName">
+              <option *ngFor="let category of categoryName | keyvalue" [ngValue]="category.key">{{ category.value }}</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary mt-4">Submit</button>
         </form>

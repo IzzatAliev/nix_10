@@ -24,6 +24,7 @@
         <module>hw_8_web_jdbc</module>
         <module>hw_9_web_jpa</module>
         <module>hw_10_repository</module>
+        <module>hw_final_project_come_up</module>
     </modules>
     <packaging>pom</packaging>
 

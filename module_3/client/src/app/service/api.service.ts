@@ -13,7 +13,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
   create(apiUrl: string, dto: REQUEST_DTO): Observable<boolean> {
     return this._http.post(apiUrl, dto, this._getOptions()).pipe(
       map((res: any) => {
-        return res.data
+        return res
       })
     );
   }
@@ -21,7 +21,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
   update(apiUrl: string, id: number, dto: REQUEST_DTO): Observable<boolean> {
     return this._http.post(apiUrl + '/' + id, dto, this._getOptions()).pipe(
       map((res: any) => {
-        return res.data
+        return res
       })
     );
   }
@@ -29,7 +29,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
   deleteById(apiUrl: string, id: number): Observable<boolean> {
     return this._http.delete(apiUrl + '/' + id, this._getOptions()).pipe(
       map((res: any) => {
-        return res.data
+        return res
       })
     );
   }
@@ -37,7 +37,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
   loadById(apiUrl: string, id: number): Observable<RESPONSE_DTO> {
     return this._http.get(apiUrl + '/' + id, this._getOptions()).pipe(
       map((res: any) => {
-        return res.data
+        return res
       })
     );
   }
@@ -45,7 +45,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
   loadAll(apiUrl: string): Observable<RESPONSE_DTO[]> {
     return this._http.get(apiUrl, this._getOptions()).pipe(
       map((res: any) => {
-        return res.items
+        return res
       })
     );
   }
@@ -55,7 +55,7 @@ export class ApiService<REQUEST_DTO, RESPONSE_DTO> {
     options.params = params;
     return this._http.get(apiUrl, options).pipe(
       map((res: any) => {
-        return res.items
+        return res
       })
     );
   }

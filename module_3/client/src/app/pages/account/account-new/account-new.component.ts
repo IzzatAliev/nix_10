@@ -26,6 +26,8 @@ export class AccountNewComponent implements OnInit {
   private _router: Router) { }
 
   ngOnInit(): void {
+    const userId: string | null = this._route.snapshot.queryParamMap.get('userId');
+    this._userId = Number(userId);
   }
 
   create(): void {

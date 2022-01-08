@@ -45,6 +45,10 @@ export class CategoryItemsComponent implements OnInit {
     });
   }
 
+  addCategory(): void {
+    this._router.navigate(['new'], { relativeTo: this._route });
+  }
+
   private _loadAll(): void {
     this._categoryApiService.loadAll().subscribe(categories => {
       this.categories = categories;

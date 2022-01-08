@@ -15,11 +15,17 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class TransactionResponseDto extends ResponseDto {
 
-    private Account account;
-    private Category category;
+    private AccountResponseDto account;
+    private CategoryResponseDto category;
     private BigDecimal amount;
 
     public TransactionResponseDto(Transaction transaction) {
         BeanUtils.copyProperties(transaction, this);
+        setId(transaction.getId());
+        setCreated(transaction.getCreated());
+        setUpdated(transaction.getUpdated());
+        setAccount(new AccountResponseDto(transaction.getAccounts()));
+        setCategory(new CategoryResponseDto(transaction.getCategories()));
+        setAmount(transaction.getAmount());
     }
 }

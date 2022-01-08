@@ -12,16 +12,16 @@
             <th>balance</th>
             <th>user</th>
             <th>details</th>
-            <th>delete</th>
+<!--            <th>delete</th>-->
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let account of accounts">
             <td>{{ account.name }}</td>
             <td>{{ account.balance }}</td>
-            <td>{{ account.user }}</td>
+            <td>{{ account.user.firstName + ' ' + account.user.lastName }}</td>
             <td><button type="button" class="btn btn-primary" (click)="loadById(account.id)">details</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deleteById(account.id)">delete</button></td>
+<!--            <td><button type="button" class="btn btn-danger" (click)="deleteById(account.id)">delete</button></td>-->
           </tr>
           </tbody>
         </table>

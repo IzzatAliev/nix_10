@@ -12,7 +12,7 @@
             <th>price</th>
             <th>income</th>
             <th>details</th>
-            <th>delete</th>
+<!--            <th>delete</th>-->
           </tr>
           </thead>
           <tbody>
@@ -21,10 +21,11 @@
             <td>{{ category.price }}</td>
             <td>{{ category.income }}</td>
             <td><button type="button" class="btn btn-primary" (click)="loadById(category.id)">details</button></td>
-            <td><button type="button" class="btn btn-danger" (click)="deleteById(category.id)">delete</button></td>
+<!--            <td><button type="button" class="btn btn-danger" (click)="deleteById(category.id)">delete</button></td>-->
           </tr>
           </tbody>
         </table>
+<!--        <button type="button" class="btn btn-primary mt-2" (click)="addCategory()">add Category</button>-->
       </div>
     </div>
   </div>
