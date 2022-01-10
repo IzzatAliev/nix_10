@@ -17,6 +17,7 @@
     <modules>
         <module>come_up_server</module>
         <module>come-up-client</module>
+        <module>come_up_supplier</module>
     </modules>
     <packaging>pom</packaging>
 

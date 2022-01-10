@@ -18,7 +18,8 @@ import java.util.Set;
 @Table(name = "courses")
 public class Course extends BaseEntity {
 
-    private String name;
+    @Column(name = "course_name")
+    private String courseName;
 
     @Column(columnDefinition = "TEXT")
     private String subtitle;
