@@ -30,7 +30,7 @@ public class Course extends BaseEntity {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Teacher teacher;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

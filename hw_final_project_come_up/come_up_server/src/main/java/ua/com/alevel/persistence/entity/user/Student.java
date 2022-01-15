@@ -20,7 +20,7 @@ import java.util.Set;
         AgeEntityListener.class})
 public class Student extends BaseInfo {
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "students")
+    @ManyToMany(mappedBy = "students", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Course> courses;
 
     public Student() {
