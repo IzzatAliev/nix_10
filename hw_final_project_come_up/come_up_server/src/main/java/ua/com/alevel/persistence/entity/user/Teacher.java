@@ -25,8 +25,7 @@ public class Teacher extends BaseInfo {
     @Column(columnDefinition = "TEXT")
     private String aboutMe;
 
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    @JoinColumn(name = "teacher_id")
+    @OneToMany(mappedBy = "teacher", cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
     private Set<Course> courses;
 
     public Teacher() {

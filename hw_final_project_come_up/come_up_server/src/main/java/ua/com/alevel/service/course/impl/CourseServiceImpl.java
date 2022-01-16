@@ -1,4 +1,4 @@
-package ua.com.alevel.service.impl;
+package ua.com.alevel.service.course.impl;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -9,8 +9,9 @@ import ua.com.alevel.persistence.crud.CrudRepositoryHelper;
 import ua.com.alevel.persistence.datatable.DataTableRequest;
 import ua.com.alevel.persistence.datatable.DataTableResponse;
 import ua.com.alevel.persistence.entity.course.Course;
+import ua.com.alevel.persistence.entity.user.Teacher;
 import ua.com.alevel.persistence.repository.course.CourseRepository;
-import ua.com.alevel.service.CourseService;
+import ua.com.alevel.service.course.CourseService;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,5 +64,10 @@ public class CourseServiceImpl implements CourseService {
             return courseRepository.findByTeacherId(teacherId);
         }
         throw new EntityNotFoundException("Entity not found");
+    }
+
+    @Override
+    public List<Course> findByTeacher(Teacher teacher) {
+        return null;
     }
 }

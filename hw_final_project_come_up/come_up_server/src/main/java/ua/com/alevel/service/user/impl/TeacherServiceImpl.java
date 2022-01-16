@@ -1,4 +1,4 @@
-package ua.com.alevel.service.impl;
+package ua.com.alevel.service.user.impl;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,56 +9,56 @@ import ua.com.alevel.exception.EntityExistException;
 import ua.com.alevel.persistence.crud.CrudRepositoryHelper;
 import ua.com.alevel.persistence.datatable.DataTableRequest;
 import ua.com.alevel.persistence.datatable.DataTableResponse;
-import ua.com.alevel.persistence.entity.user.Student;
-import ua.com.alevel.persistence.repository.user.StudentRepository;
-import ua.com.alevel.service.StudentService;
+import ua.com.alevel.persistence.entity.user.Teacher;
+import ua.com.alevel.persistence.repository.user.TeacherRepository;
+import ua.com.alevel.service.user.TeacherService;
 
 import java.util.Optional;
 
 @Service
-public class StudentServiceImpl implements StudentService {
+public class TeacherServiceImpl implements TeacherService {
 
     private final PasswordEncoder passwordEncoder;
-    private final StudentRepository studentRepository;
-    private final CrudRepositoryHelper<Student, StudentRepository> crudRepositoryHelper;
+    private final TeacherRepository teacherRepository;
+    private final CrudRepositoryHelper<Teacher, TeacherRepository> crudRepositoryHelper;
 
-    public StudentServiceImpl(PasswordEncoder passwordEncoder, StudentRepository studentRepository, CrudRepositoryHelper<Student, StudentRepository> crudRepositoryHelper) {
+    public TeacherServiceImpl(PasswordEncoder passwordEncoder, TeacherRepository teacherRepository, CrudRepositoryHelper<Teacher, TeacherRepository> crudRepositoryHelper) {
         this.passwordEncoder = passwordEncoder;
-        this.studentRepository = studentRepository;
+        this.teacherRepository = teacherRepository;
         this.crudRepositoryHelper = crudRepositoryHelper;
     }
 
     @Override
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
-    public void create(Student entity) {
-        if (studentRepository.existsByEmail(entity.getEmail())) {
-            throw new EntityExistException("this student is exist");
+    public void create(Teacher entity) {
+        if (teacherRepository.existsByEmail(entity.getEmail())) {
+            throw new EntityExistException("this teacher is exist");
         }
         entity.setPassword(passwordEncoder.encode(entity.getPassword()));
-        crudRepositoryHelper.create(studentRepository, entity);
+        crudRepositoryHelper.create(teacherRepository, entity);
     }
 
     @Override
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
-    public void update(Student entity) {
-        crudRepositoryHelper.update(studentRepository, entity);
+    public void update(Teacher entity) {
+        crudRepositoryHelper.update(teacherRepository, entity);
     }
 
     @Override
     @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
     public void delete(Long id) {
-        crudRepositoryHelper.delete(studentRepository, id);
+        crudRepositoryHelper.delete(teacherRepository, id);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Student> findById(Long id) {
-        return crudRepositoryHelper.findById(studentRepository, id);
+    public Optional<Teacher> findById(Long id) {
+        return crudRepositoryHelper.findById(teacherRepository, id);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public DataTableResponse<Student> findAll(DataTableRequest request) {
-        return crudRepositoryHelper.findAll(studentRepository, request);
+    public DataTableResponse<Teacher> findAll(DataTableRequest request) {
+        return crudRepositoryHelper.findAll(teacherRepository, request);
     }
 }

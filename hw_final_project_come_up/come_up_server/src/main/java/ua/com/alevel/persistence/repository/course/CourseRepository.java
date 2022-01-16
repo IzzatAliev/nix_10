@@ -11,4 +11,5 @@ import java.util.List;
 public interface CourseRepository extends BaseRepository<Course> {
 
     List<Course> findByTeacherId(Long teacherId);
+    List<Course> findByTeacher(Teacher teacher);
 }
