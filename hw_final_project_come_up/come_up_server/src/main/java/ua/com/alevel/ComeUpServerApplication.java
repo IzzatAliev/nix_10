@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication(scanBasePackages = "ua.com.alevel")
-//@EnableJpaRepositories
-//@EnableTransactionManagement
+@EnableJpaRepositories
+@EnableTransactionManagement
 public class ComeUpServerApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
