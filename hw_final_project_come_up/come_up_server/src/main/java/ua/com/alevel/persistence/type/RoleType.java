@@ -2,6 +2,8 @@ package ua.com.alevel.persistence.type;
 
 import lombok.Getter;
 
+import java.util.stream.Stream;
+
 @Getter
 public enum RoleType {
 
@@ -13,5 +15,9 @@ public enum RoleType {
 
     RoleType(String type){
         this.type = type;
+    }
+
+    public static Stream<RoleType> stream() {
+        return Stream.of(RoleType.values());
     }
 }

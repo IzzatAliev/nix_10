@@ -6,6 +6,7 @@ import org.springframework.security.oauth2.core.oidc.OidcIdToken;
 import org.springframework.security.oauth2.core.oidc.OidcUserInfo;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.oauth2.core.user.OAuth2User;
+import ua.com.alevel.util.GeneralUtils;
 
 import java.util.Collection;
 import java.util.Map;
@@ -32,7 +33,7 @@ public class LocalUser extends User implements OAuth2User, OidcUser {
 	}
 
 	public static LocalUser create(ua.com.alevel.persistence.entity.user.User user, Map<String, Object> attributes, OidcIdToken idToken, OidcUserInfo userInfo) {
-		LocalUser localUser = new LocalUser(user.getEmail(), user.getPassword(), user.getEnabled(), true, true, true, GeneralUtils.buildSimpleGrantedAuthorities(user.getRoles()),
+		LocalUser localUser = new LocalUser(user.getEmail(), user.getPassword(), user.getEnabled(), true, true, true, GeneralUtils.buildSimpleGrantedAuthorities(user.getRoleType()),
 				user, idToken, userInfo);
 		localUser.setAttributes(attributes);
 		return localUser;
@@ -40,7 +41,7 @@ public class LocalUser extends User implements OAuth2User, OidcUser {
 
 	@Override
 	public String getName() {
-		return this.user.getDisplayName();
+		return this.user.getFullName();
 	}
 
 	@Override

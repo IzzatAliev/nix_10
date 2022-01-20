@@ -61,4 +61,24 @@ public class StudentServiceImpl implements StudentService {
     public DataTableResponse<Student> findAll(DataTableRequest request) {
         return crudRepositoryHelper.findAll(studentRepository, request);
     }
+
+    @Override
+    public void flush() {
+        studentRepository.flush();
+    }
+
+    @Override
+    public boolean existsById(Long id) {
+        return studentRepository.existsById(id);
+    }
+
+    @Override
+    public Student findByEmail(String email) {
+        return studentRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return studentRepository.existsByEmail(email);
+    }
 }

@@ -1,6 +1,7 @@
 package ua.com.alevel.api.dto.request;
 
 import lombok.Data;
+import ua.com.alevel.persistence.type.RoleType;
 import ua.com.alevel.validator.PasswordMatches;
 
 import javax.validation.constraints.NotEmpty;
@@ -13,7 +14,13 @@ public class SignUpRequest {
     private Long userID;
 
     @NotEmpty
-    private String displayName;
+    private String firstName;
+
+    @NotEmpty
+    private String lastName;
+
+//    @NotEmpty
+//    private RoleType roleType;
 
     @NotEmpty
     private String email;
@@ -24,8 +31,10 @@ public class SignUpRequest {
     @NotEmpty
     private String matchingPassword;
 
-    public SignUpRequest(String displayName, String email, String password) {
-        this.displayName = displayName;
+    public SignUpRequest(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+//        this.roleType = roleType;
         this.email = email;
         this.password = password;
     }
@@ -35,14 +44,25 @@ public class SignUpRequest {
     }
 
     public static class Builder {
-        private String displayName;
+        private String firstName;
+        private String lastName;
         private String email;
         private String password;
 
-        public Builder addDisplayName(final String displayName) {
-            this.displayName = displayName;
+        public Builder addFirstName(final String firstName) {
+            this.firstName = firstName;
             return this;
         }
+
+        public Builder addLastName(final String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+//        public Builder addRoleType(final RoleType roleType) {
+//            this.roleType = roleType;
+//            return this;
+//        }
 
         public Builder addEmail(final String email) {
             this.email = email;
@@ -55,7 +75,7 @@ public class SignUpRequest {
         }
 
         public SignUpRequest build() {
-            return new SignUpRequest(displayName, email, password);
+            return new SignUpRequest(firstName, lastName, email, password);
         }
     }
 }

@@ -1,4 +1,4 @@
-package ua.com.alevel.util;
-
-public class GenerateTeacherTest {
-}
+//package ua.com.alevel.util;
+//
+//public class GenerateTeacherTest {
+//}

@@ -11,21 +11,12 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class BaseInfo extends User {
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "birth_day")
     private Date birthDay;
 
     @Column(name = "image_url")
     private String imageUrl;
-
-    @Transient
-    private String fullName;
 
     @Transient
     private Integer age;

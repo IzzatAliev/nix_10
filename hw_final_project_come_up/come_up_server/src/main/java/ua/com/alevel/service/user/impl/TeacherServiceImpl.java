@@ -61,4 +61,24 @@ public class TeacherServiceImpl implements TeacherService {
     public DataTableResponse<Teacher> findAll(DataTableRequest request) {
         return crudRepositoryHelper.findAll(teacherRepository, request);
     }
+
+    @Override
+    public void flush() {
+        teacherRepository.flush();
+    }
+
+    @Override
+    public boolean existsById(Long id) {
+        return teacherRepository.existsById(id);
+    }
+
+    @Override
+    public Teacher findByEmail(String email) {
+        return teacherRepository.findByEmail(email);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return teacherRepository.existsByEmail(email);
+    }
 }

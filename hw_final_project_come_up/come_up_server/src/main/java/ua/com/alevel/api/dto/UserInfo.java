@@ -6,6 +6,8 @@ import ua.com.alevel.persistence.type.RoleType;
 @Value
 public class UserInfo {
 
-    private String id, displayName, email;
+    private String id;
+    private String fullName;
+    private String email;
     private RoleType roleType;
 }
